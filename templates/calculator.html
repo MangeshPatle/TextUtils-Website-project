@@ -1,0 +1,142 @@
+<html>
+<title>basic calculator project</title>
+
+<head></head>
+
+<body>
+    <div class="cal">
+        <form action="#" name="form">
+            <div class="result">
+                <input class="text" name="disp" id="disp">
+            </div>
+            <div class="buttons">
+                <div class="row">
+                    <input type="button" value="7" name="v7" onclick="val(v7.value)">
+                    <input type="button" value="8" name="v8" onclick="val(v8.value)">
+                    <input type="button" value="9" name="v9" onclick="val(v9.value)">
+                    <input type="button" value="+" name="add" onclick="val(add.value)">
+                </div>
+
+                <div class="row">
+                    <input type="button" value="4" name="v4" onclick="val(v4.value)">
+                    <input type="button" value="5" name="v5" onclick="val(v5.value)">
+                    <input type="button" value="6" name="v6" onclick="val(v6.value)">
+                    <input type="button" value="-" name="sub" onclick="val(sub.value)">
+                </div>
+
+                <div class="row">
+                    <input type="button" value="1" name="v1" onclick="val(v1.value)">
+                    <input type="button" value="2" name="v2" onclick="val(v2.value)">
+                    <input type="button" value="3" name="v3" onclick="val(v3.value)">
+                    <input type="button" value="*" name="mult" onclick="val(mult.value)">
+                </div>
+
+                <div class="row">
+                    <input type="button" value="0" name="v0" onclick="val(v0.value)">
+                    <input type="button" value="." name="vdot" onclick="val(vdot.value)">
+                    <input type="button" value="/" name="vdiv" onclick="val(vdiv.value)">
+                    <input id="equal" type="button" title="click two times to clear result" value="=" name="equal" onclick="cal()">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<style>
+    .buttons input[type="button"] {
+        height: 56px;
+        width: 56px;
+        font-size: 23px;
+        margin: 4px;
+        border: none;
+        outline: none;
+        background: green;
+        border-radius: 5px;
+        color: #b3b3b3;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -3px -3px 7px rgba(255, 255, 255, 0.05);
+    }
+
+    .buttons input[type="button"]:focus {
+        color: blue;
+        transform: scale(0.9);
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px -3px 7px rgba(255, 255, 255, 0.05);
+    }
+
+    form .result {
+        height: 60px;
+        width: 100%;
+        background: #131419;
+        border-radius: 5px;
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px -3px 7px rgba(255, 255, 255, 0.05);
+    }
+
+    .result input {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        font-size: 30px;
+        padding: 0 20px;
+        text-align: right;
+        font-weight: 500;
+        color: red;
+        pointer-events: none;
+        font-family: sans-serif;
+    }
+
+    form .buttons {
+        text-align: center;
+        padding: 30px, 0, 0, 0;
+    }
+
+    #equal {
+        background-color: white;
+        color: red;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: grid;
+    }
+
+    body {
+        display: grid;
+        place-items: center;
+        background: rgb(251, 252, 250);
+    }
+
+    .cal {
+        width: 330px;
+        background: black;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px -3px 7px rgba(255, 255, 255, 0.05);
+    }
+</style>
+<script>
+    function val(result) {
+        form.disp.value = form.disp.value + result;
+    }
+
+    function cal() {
+        if (form.disp.value == "") {
+            alert("please enter numbers")
+        } else {
+            form.disp.value = eval(form.disp.value);
+        }
+    }
+
+    var btn = form.equal;
+    btn.addEventListener('dblclick', function() {
+        form.dispvalue = "";
+    });
+</script>
+
+</html>
